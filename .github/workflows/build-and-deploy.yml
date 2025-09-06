@@ -18,24 +18,29 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Set up Python 3.11
       uses: actions/setup-python@v3
       with:
         python-version: "3.11"
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
     - name: Build site
       run: |
         make publish
+
     - name: Decrypt ssh key
       env:
         SYMMETRICAL_KEY: ${{ secrets.SYMMETRICAL_KEY }}
       run: |
-        openssl enc -d -aes-256-cbc -pbkdf2 -in ./id_rsa_webupdate.aes -out id_rsa_webupdate --pass pass:${{ SYMMETRICAL_KEY }}
+        openssl enc -d -aes-256-cbc -pbkdf2 -in ./id_rsa_webupdate.aes -out id_rsa_webupdate --pass "pass:${{ SYMMETRICAL_KEY }}"
         chmod 600 ./id_rsa_webupdate
+
     - name: Push site contents
       run: |
         echo "put -r ./content/ ./vicsimeone/" | sftp -i ./id_rsa_webupdate webupdate@c.w6.io
