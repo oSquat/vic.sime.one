@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+  <head>
+    {% block head %}
+      <title>{% block title %}{{ SITENAME|striptags }}{% endblock title %}</title>
+      <meta charset="utf-8" />
+      <meta name="generator" content="Pelican" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {% if SITESUBTITLE %}
+        <meta name="description" content="{{ SITESUBTITLE }}" />
+      {% endif %}
+
+      <!-- CSS -->
+      {#
+        I'm not sure why there's two Pelican settings for stylesheets/css used
+        two different ways between the example templates Pelican provides:
+            STYLESHEET_URL - referenced with href="{{ STYLESHEET_URL }}" but
+                       it's made conditional only if the variable is available
+                       using a jinja conditional statement. Used this way in
+                       "simple" theme.
+            CSS_FILE - referenced with href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}"
+                       in Pelican's default theme, "notmyidea". This is not
+                       conditional, but I don't see where
+
+            Furthermore, it doesn't look like you actually need to specify
+            CSS_FILE for "notmyidea" to work, so I'm not sure where that
+            variable is coming from.
+
+            I'm just going to hard code them I think.
+      #}
+
+      <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/normalize.css" />
+      <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/skeleton.css" />
+      <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/customize.css" />
+      {% if FEED_ALL_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Full Atom Feed" />
+      {% endif %}
+      {% if FEED_ALL_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} Full RSS Feed" />
+      {% endif %}
+      {% if FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Atom Feed" />
+      {% endif %}
+      {% if FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} RSS Feed" />
+      {% endif %}
+      {% if CATEGORY_FEED_ATOM and category %}
+        <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Categories Atom Feed" />
+      {% endif %}
+      {% if CATEGORY_FEED_RSS and category %}
+        <link href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} Categories RSS Feed" />
+      {% endif %}
+      {% if TAG_FEED_ATOM and tag %}
+        <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|striptags }} Tags Atom Feed" />
+      {% endif %}
+      {% if TAG_FEED_RSS and tag %}
+        <link href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|striptags }} Tags RSS Feed" />
+      {% endif %}
+
+      <!-- font -->
+      <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+    {% endblock head %}
+  </head>
+
+  <body>
+    {% block body %}
+      <header>
+        <div class="">
+        {% block header %}
+            <div class="site-title container">
+              <div class="row">
+                <div class="one-half column">
+                  <hgroup><h1>{{ SITENAME }}</h1>
+                  {% if SITESUBTITLE %}
+                    <p>{{ SITESUBTITLE }}</p>
+                  {% endif %}</hgroup>
+                </div>
+              </div>
+            </div>
+        {% endblock header %}
+        {% block nav %}
+          <div class="container menu">
+            <div class="row">
+              {% for title, link in MENUITEMS %}
+                <div class="two columns">
+                  <a href="{{ link }}">{{ title }}</a>
+                </div>
+              {% endfor %}
+              {% if DISPLAY_PAGES_ON_MENU %}
+                {% for p in pages %}
+                  <div class="two columns">
+                    <a href="{{ SITEURL }}/{{ p.url }}" {% if p==page %} class="current" {% endif %}>{{ p.title }}</a>
+                  </div>
+                {% endfor %}
+              {% endif %}
+              {% if DISPLAY_CATEGORIES_ON_MENU %}
+                {# category display should probably go elsewhere; things will
+                   break if you go more than 6 pages/categories/menuitems  #}
+                {% for cat, null in categories %}
+                  <div class="two columns">
+                    <a href="{{ SITEURL }}/{{ cat.url }}" {% if cat==category %} class="current" {% endif %}>{{ cat }}</a>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        {% endblock nav %}
+        </div>
+      </header>
+      <main>
+        {% block content %}
+        {% endblock content %}
+      </main>
+      <footer>
+        {% block footer %}
+          <address>
+            <div class="container">
+              {#
+              Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>,
+              which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+              #}
+            </div>
+          </address>
+        {% endblock footer %}
+      </footer>
+    {% endblock body %}
+  </body>
+</html>

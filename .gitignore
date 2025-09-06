@@ -1,0 +1,8 @@
+env
+__pycache__
+output
+*egg-info
+*.pyc
+*.bak
+*.swp
+*.log
