@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - shell: bash
+      env:
+        SYMMETRICAL_AES: ${{ secrets.SYMMETRICAL_KEY }}
     - uses: actions/checkout@v4
     - name: Set up Python 3.11
       uses: actions/setup-python@v3
@@ -32,7 +35,7 @@ jobs:
         make publish
     - name: Decrypt ssh key
       run: |
-        openssl enc -d -aes-256-cbc -pbkdf2 -in ./id_rsa_webupdate.aes -out id_rsa_webupdate --pass pass:${{ secrets.SYMMETRICAL_KEY }}
+        openssl enc -d -aes-256-cbc -pbkdf2 -in ./id_rsa_webupdate.aes -out id_rsa_webupdate --pass pass:${{ SYMMETRICAL_KEY }}
     - name: Push site contents
       run: |
         echo "put -r ./content/ ./vicsimeone/" | sftp -i ./id_rsa_webupdate webupdate@c.w6.io
