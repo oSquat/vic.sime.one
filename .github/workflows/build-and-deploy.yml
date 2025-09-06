@@ -17,9 +17,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - shell: bash
-      env:
-        SYMMETRICAL_AES: ${{ secrets.SYMMETRICAL_KEY }}
     - uses: actions/checkout@v4
     - name: Set up Python 3.11
       uses: actions/setup-python@v3
@@ -34,6 +31,8 @@ jobs:
       run: |
         make publish
     - name: Decrypt ssh key
+      env:
+        SYMMETRICAL_KEY: ${{ secrets.SYMMETRICAL_KEY }}
       run: |
         openssl enc -d -aes-256-cbc -pbkdf2 -in ./id_rsa_webupdate.aes -out id_rsa_webupdate --pass pass:${{ SYMMETRICAL_KEY }}
         chmod 600 ./id_rsa_webupdate
