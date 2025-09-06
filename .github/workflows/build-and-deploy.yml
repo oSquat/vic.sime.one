@@ -18,6 +18,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      secrets:
+        SYMMETRICAL_KEY: ${{ secrets.SYMMETRICAL_KEY }}
 
     - name: Set up Python 3.11
       uses: actions/setup-python@v3
@@ -35,8 +37,6 @@ jobs:
         make publish
 
     - name: Decrypt ssh key
-      env:
-        SYMMETRICAL_KEY: "${{ secrets.SYMMETRICAL_KEY }}"
       run: |
         openssl enc -d -aes-256-cbc -pbkdf2 -in ./id_rsa_webupdate.aes -out id_rsa_webupdate --pass "pass:${{ SYMMETRICAL_KEY }}"
         chmod 600 ./id_rsa_webupdate
