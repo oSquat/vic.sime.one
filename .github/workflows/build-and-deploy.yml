@@ -52,4 +52,4 @@ jobs:
     - name: Push site contents
       run: |
         head -n 1 ./id_rsa_webupdate
-        echo "put -r ./output/ ./vicsimeone/" | sftp -i ./id_rsa_webupdate webupdate@c.w6.io
+        echo "put -r ./output/* ./vicsimeone/" | sftp -i ./id_rsa_webupdate webupdate@c.w6.io
