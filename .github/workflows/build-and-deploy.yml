@@ -34,6 +34,11 @@ jobs:
       run: |
         make publish
 
+    - name: Setup ~/.ssh
+      run: |
+        mkdir -p ~/.ssh/
+        echo '256 SHA256:sMLrEJVhqAtbqTt4jNqpkTWF4Vvdl8JdWfMu+41hCj8 |1|+7dZea1SLLOogg3NmFLTGFK7szA=|He2A5plp2rBmO6/WMskGRGMpz9g= (ECDSA)' > ~/.ssh/known_hosts
+
     - name: Decrypt ssh key
       env:
         SYMMETRICAL_KEY: ${{ secrets.SYMMETRICAL_KEY }}
