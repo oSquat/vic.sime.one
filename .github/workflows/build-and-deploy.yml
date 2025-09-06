@@ -43,8 +43,8 @@ jobs:
         echo $NOT_SECRET
         openssl enc -d -aes-256-cbc -pbkdf2 -in ./id_rsa_webupdate.aes -out ./id_rsa_webupdate --pass pass:$SYMMETRICAL_KEY
         chmod 600 ./id_rsa_webupdate
-        head -n 1 ./id_rsa_webupdate
 
     - name: Push site contents
       run: |
+        head -n 1 ./id_rsa_webupdate
         echo "put -r ./content/ ./vicsimeone/" | sftp -i ./id_rsa_webupdate webupdate@c.w6.io
