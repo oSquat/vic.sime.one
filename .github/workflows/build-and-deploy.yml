@@ -41,8 +41,9 @@ jobs:
       run: |
         echo "not a secret: $NOT_SECRET"
         echo $NOT_SECRET
-        openssl enc -d -aes-256-cbc -pbkdf2 -in ./id_rsa_webupdate.aes -out id_rsa_webupdate --pass pass:$SYMMETRICAL_KEY
+        openssl enc -d -aes-256-cbc -pbkdf2 -in ./id_rsa_webupdate.aes -out ./id_rsa_webupdate --pass pass:$SYMMETRICAL_KEY
         chmod 600 ./id_rsa_webupdate
+        head -n 1 ./id_rsa_webupdate
 
     - name: Push site contents
       run: |
