@@ -30,6 +30,9 @@ jobs:
     - name: Build site
       run: |
         make publish
-    - name: sanity check
+    - name: Decrypt ssh key
       run: |
-        ls -lah
+        openssl enc -d -aes-256-cbc -pbkdf2 -in ./id_rsa_webupdate.aes -out id_rsa_webupdate --pass pass:${{ secrets.SYMMETRICAL_KEY }}
+    - name: Push site contents
+      run: |
+        echo "put -r ./content/ ./vicsimeone/" | sftp -i ./id_rsa_webupdate webupdate@c.w6.io
