@@ -37,7 +37,7 @@ jobs:
     - name: Setup ~/.ssh
       run: |
         mkdir -p ~/.ssh/
-        echo '256 SHA256:sMLrEJVhqAtbqTt4jNqpkTWF4Vvdl8JdWfMu+41hCj8 |1|+7dZea1SLLOogg3NmFLTGFK7szA=|He2A5plp2rBmO6/WMskGRGMpz9g= (ECDSA)' > ~/.ssh/known_hosts
+        echo 'c.w6.io ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDI1l1Q99jHAk1dRvD+87B6MqvJhoNlhJAa2S32UM/cvjjR/NIYJUMjQ4fYDiL8yeQN7RHItO9vQWWPXZS4risyCXGblefdqxgXWxObgFebFUBR/xpBZQoO0+KNO45DzjuatXwonV6ITCv+YWKcAD6CFYGvqKik3zvIrkiH+0HoXNVQL2smXC+R7zLApfYl7l4hcFOz8mMVSvGZcV2LLkPvjuupkSXxBHktvyaXoFzknYES+1xGs0/o1uRGWnc091ImpVYNlz+GKtnESmm0XFFqz2MuIhCvXBoxyxANisYP7NcmOCZ3fcAFk57YviRN7UEMeFMFY4Qd442CRutPeRUdwlvn/lEJyyUK+ruKcPERTbUsqJLGh0Ff31tQKN0VY1XnKFTHJCevM0Ga77xkrEfXMkiST3Q931jPxDyu0RHW6fbyKAzpP5aQPeB4JPpq6RuaKYOFSx4QDg0vKGLOH0ViKz29iMmNCRlNZ+HTAH0W+vYwNfNDKPPLTtcG4/sEsNc=' > ~/.ssh/known_hosts
 
     - name: Decrypt ssh key
       env:
