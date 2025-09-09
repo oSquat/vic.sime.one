@@ -66,18 +66,19 @@
   <body>
     {% block body %}
       <header>
-        <div class="">
         {% block header %}
-            <div class="site-title container">
-              <div class="row">
-                <div class="one-half column">
-                  <hgroup><h1>{{ SITENAME }}</h1>
+          <div class="container">
+            <div class="row">
+              <div class="twelve columns">
+                <hgroup>
+                  <h1 class="site-title">{{ SITENAME }}</h1>
                   {% if SITESUBTITLE %}
                     <p>{{ SITESUBTITLE }}</p>
-                  {% endif %}</hgroup>
-                </div>
+                  {% endif %}
+                </hgroup>
               </div>
             </div>
+          </div>
         {% endblock header %}
         {% block nav %}
           <div class="container menu">
@@ -106,7 +107,6 @@
             </div>
           </div>
         {% endblock nav %}
-        </div>
       </header>
       <main>
         {% block content %}
