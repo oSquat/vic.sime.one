@@ -6,3 +6,4 @@ output
 *.bak
 *.swp
 *.log
+id_rsa_webupdate
