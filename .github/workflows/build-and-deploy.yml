@@ -49,4 +49,4 @@ jobs:
 
     - name: Push site contents
       run: |
-        echo "put -r ./output/* ./vicsimeone/" | sftp -i ./id_rsa_webupdate webupdate@c.w6.io
+        scp -ri ./id_rsa_webupdate ./output/* webupdate@c.w6.io:~/vicsimeone/
