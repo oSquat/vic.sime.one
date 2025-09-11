@@ -21,7 +21,7 @@ Unless otherwise noted, I was the primary or sole person in charge of design, de
 
 > An accounting-focused setup wizard for Tigerpaw pulled insights from a customer's existing QuickBooks company file. The QBWizard would create GL Accounts and apply settings necessary to tie Tigerpaw with QuickBooks for accounting exports or ask questions about how to proceed.
 
-* **ReportsTiger.com** | *Python | OpenCart | Microsoft SQL Server | NSIS*
+* **ReportsTiger.com** | *Python; OpenCart; Microsoft SQL Server; NSIS*
 
 > ReportsTiger.com was an e-commerce website running OpenCart with added customization. After a sale, the purchased reports would be dynamically compiled into an installation package and distributed to the customer while the invoice and customer inventory was imported into our on-site database.
 
@@ -64,6 +64,7 @@ Projects under direction of the telecommunications division.
 > * An SNMP sink to receive messages from the phone system. These messages were analyzed and email alerts were sent out when problems were detected. We were often able to notify the customer that we had identified and were investigating an issue before they even knew about it.
 
 * **Call Accounting** | *Flask; Microsoft SQL; VB.NET; NEC / Zultys*
+
 > Developed an in-house call accounting system to collect call records (metadata) from customer sites for analysis and reporting. 
 > 
 > Phone systems were configured output Station Message Detail Recording (SMDR) records. A TCP-based cloud collector or on-site Scannex "ip.buffer" collected record streams from the phone system. Records were then sent to a web service (created with Flask) and written to database (Microsoft SQL). I assisted in integrating the database to an existing in-house web portal so customers could view reports or schedule delivery via e-mail. A Windows service I wrote in VB.NET generated and sent scheduled reports.
@@ -76,3 +77,14 @@ Projects under direction of the telecommunications division.
 > * Traffic studies (see TrueTrunk) to reduce costs and estimate SIP migration pricing
 > * Assist with investigations (e.g. human resources, loss prevention or threats)
 
+* **Automated voicemail backups for the NEC UM8700 platform** | *Flask; NEC; bash*
+
+> The UM8700 ran a trim, embedded version of Linux. The platform supported scheduling backups on-device but only to a single defined file which was constantly overwritten. I created a series of bash scripts and secure method of delivery on this system without trusted root certificates. The scripts bootstraped a chain of trust then setup a cron script to rotate on-device backups, deleting old backups after N days, and uploaded the latest backup to the "File Uploader" (see Misc Development & Scripting > "File Uploader").
+
+---
+
+### Miscellaneous Python stuff
+Various other mentions.
+
+* **Truetrunk** - Call Accounting SMDR record analysis to calculate precise peak call volumes for a period of time. We used this to cut back on over provisioning, saving the customer money. We could determine exactly how many phone lines were needed, or project the number of calls or duration of time callers would have been unable to connect if they had fewer lines than required. If we
+* **Various Integrations & API's** - Paychex, Paylocity, StarShip, QuickBooks, Peachtree, Twilio, Avalara
