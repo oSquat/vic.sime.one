@@ -67,7 +67,7 @@ Projects under direction of the telecommunications division.
 
 > Developed an in-house call accounting system to collect call records (metadata) from customer sites for analysis and reporting. 
 > 
-> Phone systems were configured output Station Message Detail Recording (SMDR) records. A TCP-based cloud collector or on-site Scannex "ip.buffer" collected record streams from the phone system. Records were then sent to a web service (created with Flask) and written to database (Microsoft SQL). I assisted in integrating the database to an existing in-house web portal so customers could view reports or schedule delivery via e-mail. A Windows service I wrote in VB.NET generated and sent scheduled reports.
+> Phone systems were configured output Station Message Detail Recording (SMDR) records. A TCP-based cloud collector or on-site Scannex "ip.buffer" collected record streams from the phone system. Records were then sent to a web service for collection and saved to database. I assisted in integrating the database to an existing in-house web portal so customers could view reports or schedule delivery via e-mail. A Windows service I wrote in VB.NET generated and sent scheduled reports.
 >
 > Supported NEC phone systems 2000 IPS, NEAX 2400, SV8100/9100, SV8300/9300, SV8500/9500 and Zultys systems MX30, MX250, MX-SE, MX-E, and MXvirtual with a Nortel SL-1 compatible record format.
 >
