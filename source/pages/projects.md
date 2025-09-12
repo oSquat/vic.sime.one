@@ -1,6 +1,7 @@
 Title: projects
 Date: 1000-01-01 00:00
 
+[TOC]
 
 ### Licensed Software Products
 Unless otherwise noted, I was the primary or sole person in charge of design, development, documentation and support of the following companion products for Tigerpaw CRM.
