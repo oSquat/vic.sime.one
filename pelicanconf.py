@@ -58,6 +58,7 @@ MARKDOWN = {
         'markdown.extensions.extra': {},
         'markdown.extensions.meta': {},
         'markdown.extensions.toc': {},
+        'markdown.extensions.def_list': {},
     },
     'output_format': 'html5'
 }
