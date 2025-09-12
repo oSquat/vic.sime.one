@@ -3,7 +3,7 @@ Date: 1000-01-01 00:00
 
 [TOC]
 
-### Licensed Software Products
+# Licensed Software Products
 Unless otherwise noted, I was the primary or sole person in charge of design, development, documentation and support of the following companion products for Tigerpaw CRM.
 
 **QBTrak - accounting data export** | *VB6 / .NET; Microsoft SQL Server; QuickBooks SDK*
@@ -42,7 +42,7 @@ Unless otherwise noted, I was the primary or sole person in charge of design, de
 
 ---
 
-### Projects Related to Software Development
+# Projects Related to Software Development
 Additional projects or scripting related to the software development, but not sellable licensed software.
 
 **License Registration & Rights Management**
@@ -59,7 +59,7 @@ Additional projects or scripting related to the software development, but not se
 
 ---
 
-### Telephony Projects
+# Telephony Projects
 Projects under direction of the telecommunications division.
 
 **LANTA bus route IVR** | *VB.NET; UCConnect; Availtec API*
@@ -93,7 +93,7 @@ Projects under direction of the telecommunications division.
 
 ---
 
-### Video Management Systems
+# Video Management Systems
 
 **Video Management System (VMS)**
 : Physically building servers, installing Linux & setting up MDADM RAID arrays. Installing Hanwha VMS software.
@@ -103,7 +103,7 @@ Projects under direction of the telecommunications division.
 
 ---
 
-### Miscellaneous Python stuff
+# Miscellaneous Python stuff
 Various other mentions.
 
 **Truetrunk**

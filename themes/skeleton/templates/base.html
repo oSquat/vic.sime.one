@@ -69,43 +69,41 @@
         {% block header %}
           <div class="container">
             <div class="row">
-              <div class="twelve columns">
-                <hgroup>
+              <hgroup>
+                <div class="six columns">
                   <h1 class="site-title">{{ SITENAME }}</h1>
-                  {% if SITESUBTITLE %}
-                    <p>{{ SITESUBTITLE }}</p>
+                </div>
+                <div class="menu">
+                  {% for title, link in MENUITEMS %}
+                    <div class="two columns">
+                      <a href="{{ link }}">{{ title }}</a>
+                    </div>
+                  {% endfor %}
+                  {% if DISPLAY_PAGES_ON_MENU %}
+                    {% for p in pages %}
+                      <div class="two columns">
+                        <a href="{{ SITEURL }}/{{ p.url }}" {% if p==page %} class="current" {% endif %}>{{ p.title }}</a>
+                      </div>
+                    {% endfor %}
                   {% endif %}
-                </hgroup>
-              </div>
+                  {% if DISPLAY_CATEGORIES_ON_MENU %}
+                    {# category display should probably go elsewhere; things will
+                       break if you go more than 6 pages/categories/menuitems  #}
+                    {% for cat, null in categories %}
+                      <div class="two columns">
+                        <a href="{{ SITEURL }}/{{ cat.url }}" {% if cat==category %} class="current" {% endif %}>{{ cat }}</a>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </hgroup>
             </div>
           </div>
+          {% if SITESUBTITLE %}
+            <p>{{ SITESUBTITLE }}</p>
+          {% endif %}
         {% endblock header %}
         {% block nav %}
-          <div class="container menu">
-            <div class="row">
-              {% for title, link in MENUITEMS %}
-                <div class="two columns">
-                  <a href="{{ link }}">{{ title }}</a>
-                </div>
-              {% endfor %}
-              {% if DISPLAY_PAGES_ON_MENU %}
-                {% for p in pages %}
-                  <div class="two columns">
-                    <a href="{{ SITEURL }}/{{ p.url }}" {% if p==page %} class="current" {% endif %}>{{ p.title }}</a>
-                  </div>
-                {% endfor %}
-              {% endif %}
-              {% if DISPLAY_CATEGORIES_ON_MENU %}
-                {# category display should probably go elsewhere; things will
-                   break if you go more than 6 pages/categories/menuitems  #}
-                {% for cat, null in categories %}
-                  <div class="two columns">
-                    <a href="{{ SITEURL }}/{{ cat.url }}" {% if cat==category %} class="current" {% endif %}>{{ cat }}</a>
-                  </div>
-                {% endfor %}
-              {% endif %}
-            </div>
-          </div>
         {% endblock nav %}
       </header>
       <main>
