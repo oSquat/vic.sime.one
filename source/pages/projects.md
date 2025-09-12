@@ -83,6 +83,13 @@ Projects under direction of the telecommunications division.
 
 ---
 
+### Video Management Systems
+
+* **Video Management System (VMS)** - physically building servers & installing VMS software on Ubuntu for maybe $1,000 and 2,000 when comparable systems from the vendor were starting at $8,000 or $10,000. Hanwha Wave VMS installed on Ubuntu and I utilized MDADM to setup software RAID arrays.
+* **VMS monitors** - for Hanwha and Uniview allowed us to identify and take action to correct problems with the video systems.
+
+---
+
 ### Miscellaneous Python stuff
 Various other mentions.
 
