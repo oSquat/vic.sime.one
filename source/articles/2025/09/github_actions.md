@@ -1,5 +1,6 @@
 title: Git Actions... but wait! RFC4255!
 date: 2025-09-07 00:00
+status: draft
 slug: git-actions-and-rfc4255
 lang: en
 
