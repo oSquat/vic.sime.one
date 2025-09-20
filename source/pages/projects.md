@@ -66,7 +66,7 @@ Projects under direction of the telecommunications division.
 
 : Designed & developed an Interactive Voice Response (IVR) system allowing Lehigh & Northampton Transportation Authority (LANTA) customers to call in, enter their bus stop station ID and receive up-to-the-minute schedule details or delay notices. Developed on AVST's UCConnect platform with VB.NET, bus route data was pulled from an Avaltec API.
 
-**Telephony Appliance** | *Linux; Python; Flask; Postgres; DHCP; SNMP*
+**Telephony Appliance** | *Linux; Python; Flask; Postgres; DHCP; TFTP; SNMP*
 
 : I installed Linux on a single board computer configured to support telephony deployments at customer sites. These appliances provided:
 
@@ -89,7 +89,7 @@ Projects under direction of the telecommunications division.
 
 **Automated voicemail backups for the NEC UM8700 platform** | *Flask; NEC; bash*
 
-: The UM8700 ran a trim, embedded version of Linux. The platform supported scheduling backups on-device but only to a single defined file which was constantly overwritten. I created a series of bash scripts and secure method of delivery on this system without trusted root certificates. The scripts bootstraped a chain of trust then setup a cron script to rotate on-device backups, deleting old backups after N days, and uploaded the latest backup to the "File Uploader" (see Misc Development & Scripting > "File Uploader").
+: The UM8700 ran a trim, embedded version of Linux. The platform supported scheduling backups on-device but only to a single defined file which was constantly overwritten. I created a series of bash scripts and a secure method of delivery on this system without trusted root certificates. The scripts bootstraped a chain of trust then setup a cron script to rotate on-device backups, deleting old backups after N days, and uploaded the latest backup to the "File Uploader" (see Misc Development & Scripting > "File Uploader").
 
 ---
 
