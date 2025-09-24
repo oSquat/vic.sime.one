@@ -103,7 +103,7 @@ Projects under direction of the telecommunications division.
 
 ---
 
-# Miscellaneous Python stuff
+# Miscellaneous Python Stuff
 Various other mentions.
 
 **Truetrunk**
@@ -113,3 +113,7 @@ Various other mentions.
 **Various Integrations & API's**
 
 :  Paychex, Paylocity, StarShip, QuickBooks, Peachtree, Twilio, Avalara
+
+**Mooltipy**
+
+: [Mooltipy](https://github.com/osquat/mooltipy) is a collection of command-line utilities and Python library developed to manage the Mooltipass, a hardware password keeper. Released as free software under the GPL.
